@@ -12,18 +12,19 @@ then
 else
     # гамма
     xgamma -gamma 0.65
+    if [ $1 = 'night' ]; 
+    then
+        # magic bright: Text
+        ddccontrol -r 0xdc -w 1 dev:/dev/i2c-1
+    fi
+
+    if [ $1 = 'text' ]; 
+    then
+        # magic bright: Game
+        ddccontrol -r 0xdc -w 3 dev:/dev/i2c-1
+    fi
+
+    exit 0
 fi
 
-if [ $1 = 'night' ]; 
-then
-    # magic bright: Text
-    ddccontrol -r 0xdc -w 1 dev:/dev/i2c-1
-fi
 
-if [ $1 = 'text' ]; 
-then
-    # magic bright: Game
-    ddccontrol -r 0xdc -w 3 dev:/dev/i2c-1
-fi
-
-exit 0

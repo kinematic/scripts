@@ -1,0 +1,40 @@
+#!/bin/bash
+
+if [ $1 = 'video' ]; 
+then
+# 	xbacklight -set 100
+
+    # magic bright: Sport
+    ddccontrol -r 0xdc -w 4 dev:/dev/i2c-1
+    
+    # гамма
+	xgamma -gamma 1.0
+fi
+
+if [ $1 = 'night' ]; 
+then
+    # гамма -0.5
+#     ddccontrol -r 0xf2 -w 2 dev:/dev/i2c-1
+#	xbacklight -set 100
+
+    # magic bright: Text
+    ddccontrol -r 0xdc -w 1 dev:/dev/i2c-1
+    
+    # гамма
+	xgamma -gamma 0.65
+fi
+
+if [ $1 = 'text' ]; 
+then
+    # гамма -0.5
+#     ddccontrol -r 0xf2 -w 2 dev:/dev/i2c-1
+#	xbacklight -set 100
+
+    # magic bright: Game
+    ddccontrol -r 0xdc -w 3 dev:/dev/i2c-1
+    
+    # гамма
+	xgamma -gamma 0.65
+fi
+
+exit 0
